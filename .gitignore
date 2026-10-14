@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+# Generated build files and binaries
+build/pyinstaller/
+/dist/MURAMASA_Extractor.exe
+
+# Game archives and extracted game data are local user files
+*.npa
+/npa/
+/*_解包/
