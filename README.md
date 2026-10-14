@@ -17,7 +17,7 @@
 
 ### Windows 可执行文件
 
-从仓库的 `dist/MURAMASA-Extractor.exe` 下载并运行，再选择 NPA 存档和输出目录开始解包。默认输出目录会根据存档名称生成；非空目录可能覆盖同名文件，程序会在开始前提示。
+从 [GitHub Releases 页面](https://github.com/Kyozex/MURAMASA-Extractor/releases/latest) 下载 `MURAMASA-Extractor.exe` 并运行，再选择 NPA 存档和输出目录开始解包。默认输出目录会根据存档名称生成；非空目录可能覆盖同名文件，程序会在开始前提示。
 
 首次启动时，如果没有保存过存档路径，程序会尝试从程序目录下的 `npa` 文件夹选择一个 `.npa` 文件，并优先选择 `cg.npa`。也可以随时通过浏览按钮手动选择。
 
@@ -41,7 +41,7 @@ python -m pip install -r requirements-build.txt
 .\build\build_exe.ps1
 ```
 
-构建完成后，可执行文件位于 `dist/MURAMASA-Extractor.exe`。发布 exe 时请同时提供仓库中的 `THIRD_PARTY_NOTICES.md`，并核对实际构建依赖所要求的许可文件。构建会沿用 `assets/images/` 中的界面图片，并从 `icon_portrait.png` 生成程序图标。
+构建完成后，可执行文件位于本机的 `dist/MURAMASA-Extractor.exe`；该构建产物不会提交到源码仓库。公开下载请使用 GitHub Releases，并同时提供 `THIRD_PARTY_NOTICES.md`。构建会沿用 `assets/images/` 中的界面图片，并从 `icon_portrait.png` 生成程序图标。
 
 ## 项目文件
 
