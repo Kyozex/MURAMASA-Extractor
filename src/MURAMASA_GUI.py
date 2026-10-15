@@ -24,7 +24,7 @@ APP_NAME = "MURAMASA-Extractor"
 PROFILE_LABELS = {
     "自动识别": "auto",
     "本篇": "muramasa",
-    "邪念编": "janen",
+    "邪念篇": "janen",
     "赎罪篇": "shokuzai",
 }
 ENCODING_LABELS = {
@@ -33,7 +33,7 @@ ENCODING_LABELS = {
     "中文 GBK": "gbk",
     "UTF-8": "utf-8",
 }
-PROFILE_NAMES = {"muramasa": "本篇", "janen": "邪念编", "shokuzai": "赎罪篇"}
+PROFILE_NAMES = {"muramasa": "本篇", "janen": "邪念篇", "shokuzai": "赎罪篇"}
 
 
 COLORS = {
@@ -470,7 +470,13 @@ class MuramasaApp(ctk.CTk):
         self.archive_var = ctk.StringVar(value=saved.get("archive", ""))
         self.output_var = ctk.StringVar(value=saved.get("output", ""))
         saved_profile = saved.get("profile", "自动识别")
-        saved_profile = {"本篇 · Muramasa": "本篇", "邪念编 · Janen Hen": "邪念编", "赎罪篇 · Shokuzai Hen": "赎罪篇"}.get(saved_profile, saved_profile)
+        saved_profile = {
+            "本篇 · Muramasa": "本篇",
+            "邪念编": "邪念篇",
+            "邪念编 · Janen Hen": "邪念篇",
+            "邪念篇 · Janen Hen": "邪念篇",
+            "赎罪篇 · Shokuzai Hen": "赎罪篇",
+        }.get(saved_profile, saved_profile)
         saved_encoding = saved.get("encoding", "自动")
         saved_encoding = {"自动（推荐）": "自动", "日文 · CP932": "日文 CP932",
                           "简体中文 · GBK": "中文 GBK", "Unicode · UTF-8": "UTF-8"}.get(saved_encoding, saved_encoding)
@@ -1013,7 +1019,7 @@ class MuramasaApp(ctk.CTk):
                 return "[写入] " + message[8:]
         if message.startswith("[log] data cipher:"):
             cipher = message.split(":", 1)[1].strip()
-            short_name = {"MURAMASA": "本篇", "Janen Hen": "邪念编", "Shokuzai Hen": "赎罪篇"}.get(cipher, cipher)
+            short_name = {"MURAMASA": "本篇", "Janen Hen": "邪念篇", "Shokuzai Hen": "赎罪篇"}.get(cipher, cipher)
             return "[加密] " + short_name
         if message.startswith("[log] unpack"):
             return "[完成] " + message
